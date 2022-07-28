@@ -1,22 +1,8 @@
 import { useState } from 'react'
 import styled from 'styled-components'
+import type { TPizza } from './PizzaList'
 
-type Pizza = { id: number; name: string; description: string }
-
-let pizzas = [
-  {
-    id: 1,
-    name: 'Cheese pizza',
-    description: 'very cheesy',
-  },
-  {
-    id: 2,
-    name: 'Al Tono pizza',
-    description: 'lots of tuna',
-  },
-]
-
-function Pizza({ pizza }: { pizza: Pizza }) {
+export default function Pizza({ pizza }: { pizza: TPizza }) {
   const [data, setData] = useState(pizza)
   const [dirty, setDirty] = useState(false)
 
@@ -53,25 +39,19 @@ function Pizza({ pizza }: { pizza: Pizza }) {
   )
 }
 
-export default function Main() {
-  const data = pizzas.map(pizza => <Pizza pizza={pizza} />)
-
-  return <>{data}</>
-}
-
 const PizzaFrame = styled.div`
   border: solid 1px gray;
-  padding: 10px;
-  margin: 15px 10px;
+  padding: 1rem 2rem;
   border-radius: 5px;
   box-shadow: 0 0 5px grey;
-  font-family: Arial;
+  width: 40rem;
 `
 
 const Input = styled.input`
   border: solid 1px black;
   padding: 5px;
   border-radius: 3px;
+  width: 100%;
 `
 
 const Title = styled(Input)`

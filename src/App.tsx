@@ -1,11 +1,16 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import './App.css'
-import Pizza from './components/Pizza'
+import PizzaList from './components/PizzaList'
+
+const queryClient = new QueryClient()
 
 function App() {
   return (
-    <div className="App">
-      <Pizza />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <PizzaList />
+      </div>
+    </QueryClientProvider>
   )
 }
 
